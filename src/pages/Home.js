@@ -8,15 +8,15 @@ export const Home = ({navigation}) => {
         <Text style={styles.title}>Home</Text>
           <View style={styles.buttonContainer}>
   
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection',{level:"easy"})}>
               <Text>Easy Level</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection',{level:"medium"})}>
               <Text>Medium Level</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection',{level:"hard"})}>
               <Text>Hard Level</Text>
             </TouchableOpacity>
   

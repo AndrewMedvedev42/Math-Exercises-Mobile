@@ -2,15 +2,15 @@ import React from 'react';
 import {Data} from "../Data/Data"
 import { StyleSheet, Text, View , Button, TouchableOpacity} from 'react-native';
 
-export const LevelSection = () => {
+export const LevelSection = ({route,navigation}) => {
 
     return(<View style={{backgroundColor:"#fc0", flex:1}}>
         <View style={styles.levelListContainer}>
             {Data.map((item)=>{
-            const {sortKey, index} = item
-            if (sortKey === "hard") {
+            const {id, sortKey, index, problemDescription, mathProblem} = item
+            if (sortKey === route.params.level) {
                 return (
-                    <TouchableOpacity style={styles.levelSlot}>
+                    <TouchableOpacity style={styles.levelSlot} onPress={() => navigation.navigate('Exercise',{exerciseDesc: problemDescription, problem:mathProblem})}>
                         <Text>{index}</Text>
                     </TouchableOpacity>
                 )
