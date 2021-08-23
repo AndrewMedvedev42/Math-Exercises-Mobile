@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View , Button, TouchableOpacity} from 'react-native';
 
-export const Home = () => {
+export const Home = ({navigation}) => {
     return(
         <View style={{backgroundColor:"#fc0", flex:1}}>
         <Text style={styles.title}>Home</Text>
@@ -20,7 +20,7 @@ export const Home = () => {
               <Text>Hard Level</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About')}>
               <Text>About...</Text>
             </TouchableOpacity>
   
