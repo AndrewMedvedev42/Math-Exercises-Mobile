@@ -3,12 +3,11 @@ import { StyleSheet, Text, View , Button, TouchableOpacity, TextInput} from 'rea
 
 export const ExerciseTemplate = ({route}) => {
     return (
-    <View>
-        <Text style={{fontSize:28}}>{route.params.exerciseDesc}</Text>
-        <View>
-        <Text style={{fontSize:32}}>{route.params.problem}</Text>
-            <TextInput
-                style={styles.inputField}/>
+    <View style={{flex:1, justifyContent:"space-between", alignItems:"center"}}>
+        <Text style={styles.mathDescription}>{route.params.exerciseDesc}</Text>
+        <View style={{justifyContent:"space-between", alignItems:"center"}}>
+        <Text style={styles.mathProblem}>{route.params.problem}</Text>
+        <TextInput style={styles.inputField}/>
         </View>
         <TouchableOpacity style={styles.SubmitButton}>
             <Text>Submit</Text>
@@ -18,6 +17,15 @@ export const ExerciseTemplate = ({route}) => {
 }
 
 const styles = StyleSheet.create({
+    mathDescription:{
+        textAlign:"center",
+        marginTop:76,
+        fontSize:28
+    },
+    mathProblem:{
+        fontSize:24,
+        margin:12
+    },
     inputField:{
         width: 319,
         height: 40, 
@@ -27,12 +35,10 @@ const styles = StyleSheet.create({
     SubmitButton:{
         width: 319,
         padding: 20,
+        marginBottom:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"white",
-        borderColor:"black",
+        backgroundColor:"#c09",
         borderRadius:50,
-        borderWidth: 3,
-        elevation:5,
     }
 })

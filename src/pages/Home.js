@@ -4,35 +4,35 @@ import { StyleSheet, Text, View , Button, TouchableOpacity} from 'react-native';
 
 export const Home = ({navigation}) => {
     return(
-        <View style={{backgroundColor:"#fc0", flex:1}}>
-        <Text style={styles.title}>Home</Text>
+        <View style={{flex:1}}>
+        <Text style={styles.title}>ClassRoom</Text>
           <View style={styles.buttonContainer}>
-  
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection',{level:"easy"})}>
-              <Text>Easy Level</Text>
+              <Text style={styles.buttonText}>Easy Level</Text>
             </TouchableOpacity>
   
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection',{level:"medium"})}>
-              <Text>Medium Level</Text>
+              <Text style={styles.buttonText}>Medium Level</Text>
             </TouchableOpacity>
   
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelSection',{level:"hard"})}>
-              <Text>Hard Level</Text>
+              <Text style={styles.buttonText}>Hard Level</Text>
             </TouchableOpacity>
   
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About')}>
-              <Text>About...</Text>
+              <Text style={styles.buttonText}>About...</Text>
             </TouchableOpacity>
   
           </View>
           <StatusBar style="auto" />
+                    
       </View>
     )
 }
 
 const styles = StyleSheet.create({
     title:{
-      color:"#ff8000",
+      color:"#cc6600",
       textAlign:"center",
       fontWeight:"bold",
       fontSize:36,
@@ -49,10 +49,15 @@ const styles = StyleSheet.create({
       padding: 20,
       borderColor:"black",
       borderRadius:25,
-      borderWidth: 3,
+      // borderWidth: 3,
       backgroundColor:"white",
       elevation: 5,
       
+    },
+    buttonText:{
+      color:"black",
+      fontSize:18,
+      fontWeight:"bold"
     }
   });
   

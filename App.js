@@ -1,11 +1,11 @@
 import React from 'react';
 import {Home} from "./src/pages/Home"
 import {About} from "./src/pages/About"
-import {LevelSection} from "./src/pages/LevelSection"
+import {ExerciseSection} from "./src/pages/LevelSection"
 import {ExerciseTemplate} from "./src/pages/Exercise"
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import {CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import {CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack'; 
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -30,7 +30,7 @@ export default function App() {
 
       <Stack.Screen
           name="LevelSection"
-          component={LevelSection}
+          component={ExerciseSection}
           screenOptions={{
             headerShown: false}}/>
       
