@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     inputField:{
         width: 319,
         height: 40, 
+        padding: 20,
         borderColor: 'gray', 
         borderWidth: 1 
     },

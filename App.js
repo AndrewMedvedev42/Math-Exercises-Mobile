@@ -1,7 +1,7 @@
 import React from 'react';
 import {Home} from "./src/pages/Home"
 import {About} from "./src/pages/About"
-import {ExerciseSection} from "./src/pages/LevelSection"
+import {LevelSection} from "./src/pages/LevelSection"
 import {ExerciseTemplate} from "./src/pages/Exercise"
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -28,9 +28,9 @@ export default function App() {
           screenOptions={{
             headerShown: false}}/>
 
-      <Stack.Screen
+    <Stack.Screen
           name="LevelSection"
-          component={ExerciseSection}
+          component={LevelSection}
           screenOptions={{
             headerShown: false}}/>
       
