@@ -4,13 +4,13 @@ import { StyleSheet, Text, View , Button, TouchableOpacity} from 'react-native';
 
 export const LevelSection = ({route,navigation}) => {
 
-    return(<View style={{backgroundColor:"#fc0", flex:1}}>
+    return(<View style={{flex:1}}>
         <View style={styles.levelListContainer}>
             {Data.map((item)=>{
             const {id, sortKey, index, problemDescription, mathProblem} = item
             if (sortKey === route.params.level) {
                 return (
-                    <TouchableOpacity style={styles.levelSlot} onPress={() => navigation.navigate('Exercise',{exerciseDesc: problemDescription, problem:mathProblem})}>
+                    <TouchableOpacity style={styles.levelSlot} onPress={() => navigation.navigate('Exercise',{item})}>
                         <Text>{index}</Text>
                     </TouchableOpacity>
                 )
