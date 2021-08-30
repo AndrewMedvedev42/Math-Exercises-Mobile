@@ -1,8 +1,29 @@
 import React from "react";
 import { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import {
+    useFonts,
+    Rubik_300Light,
+    Rubik_400Regular,
+    Rubik_500Medium,
+    Rubik_600SemiBold,
+    Rubik_700Bold,
+    Rubik_800ExtraBold,
+    Rubik_900Black
+  } from '@expo-google-fonts/rubik';
 import { StyleSheet, Text, View , Button, TouchableOpacity, TextInput} from 'react-native';
 
 export const ExerciseTemplate = ({route, navigation}) => {
+
+    let [fontsLoaded] = useFonts({
+        Rubik_300Light,
+        Rubik_400Regular,
+        Rubik_500Medium,
+        Rubik_600SemiBold,
+        Rubik_700Bold,
+        Rubik_800ExtraBold,
+        Rubik_900Black
+      });
 
     const {problemDescription, mathProblem, trueAnswer} = route.params.item
 
@@ -21,14 +42,15 @@ export const ExerciseTemplate = ({route, navigation}) => {
     }
 
     return (
-    <View style={{backgroundColor:"white",flex:1,justifyContent:"space-between", alignItems:"center"}}>
+    <View style={{flex:1,justifyContent:"space-between", alignItems:"center"}}>
         <View style={{marginTop:76,justifyContent:"space-between", alignItems:"center"}}>
+        {exerciseCompleteStatus && (
+                <Text>Congratulations, you answered correctly!</Text>
+            )}
+            
             <Text style={styles.mathDescription}>{problemDescription}</Text>
             <Text style={styles.mathProblem}>{mathProblem}</Text>
                 <TextInput editable={!exerciseCompleteStatus} style={styles.inputField} onChangeText={(text)=>{setTypedInput(text)}}/>
-            {exerciseCompleteStatus && (
-                <Text>Congratulations, you answered correctly!</Text>
-            )}
         </View>
         <View>
             {!backButtonActivity && (
@@ -50,7 +72,8 @@ export const ExerciseTemplate = ({route, navigation}) => {
 const styles = StyleSheet.create({
     mathDescription:{
         textAlign:"center",
-        fontSize:28
+        fontSize:28,
+        fontFamily:"Rubik_800ExtraBold"
     },
     mathProblem:{
         fontSize:24,

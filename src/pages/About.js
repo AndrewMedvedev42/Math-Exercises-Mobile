@@ -1,9 +1,31 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import {
+    useFonts,
+    Rubik_300Light,
+    Rubik_400Regular,
+    Rubik_500Medium,
+    Rubik_600SemiBold,
+    Rubik_700Bold,
+    Rubik_800ExtraBold,
+    Rubik_900Black
+  } from '@expo-google-fonts/rubik';
+
 import { StyleSheet, Text, View , Button, TouchableOpacity, ScrollView, SafeAreaView} from 'react-native';
 export const About = ({navigation}) => {
+
+    let [fontsLoaded] = useFonts({
+        Rubik_300Light,
+        Rubik_400Regular,
+        Rubik_500Medium,
+        Rubik_600SemiBold,
+        Rubik_700Bold,
+        Rubik_800ExtraBold,
+        Rubik_900Black
+      });
+
     return (
-        <View style={{backgroundColor:"#fc0", flex:1}}>
+        <View style={{flex:1}}>
             <View>
             <TouchableOpacity style={styles.BackButton} onPress={() => navigation.navigate('Home')}>
                 <Ionicons name="chevron-back-outline" size={19.2} color="gray" />
@@ -48,6 +70,7 @@ export const About = ({navigation}) => {
 const styles = StyleSheet.create({
     title:{
         fontSize:36,
+        fontFamily:"Rubik_800ExtraBold"
     },
     subTitle:{
         fontSize:24,

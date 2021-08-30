@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
       width: 319,
       margin: 6,
       padding: 20,
+      backgroundColor:"white",
       borderColor:"black",
       borderRadius:25,
-      // borderWidth: 3,
-      backgroundColor:"white",
-      elevation: 5,
+      borderWidth: 3,
+      elevation:5,
       
     },
     buttonText:{
