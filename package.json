@@ -17,10 +17,15 @@
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-mathjax": "^1.0.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-math-view": "^3.9.4",
+    "react-native-mathjax": "^2.1.2",
+    "react-native-mathjax-html-to-svg": "^1.0.6",
+    "react-native-mathjax-local": "^2.3.1",
     "react-native-screens": "^3.5.0",
+    "react-native-svg": "^12.1.1",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {

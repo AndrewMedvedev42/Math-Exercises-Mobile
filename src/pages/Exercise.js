@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import MathJax from 'react-native-mathjax-local';
 import {
     useFonts,
     Rubik_300Light,
@@ -14,7 +15,6 @@ import {
 import { StyleSheet, Text, View , Button, TouchableOpacity, TextInput} from 'react-native';
 
 export const ExerciseTemplate = ({route, navigation}) => {
-
     let [fontsLoaded] = useFonts({
         Rubik_300Light,
         Rubik_400Regular,
@@ -42,17 +42,41 @@ export const ExerciseTemplate = ({route, navigation}) => {
     }
 
     return (
-    <View style={{flex:1,justifyContent:"space-between", alignItems:"center"}}>
-        <View style={{marginTop:76,justifyContent:"space-between", alignItems:"center"}}>
+    <View style={{flex:1}}>
+        <TouchableOpacity style={styles.BackButton} onPress={() => navigation.goBack()}>
+            <Ionicons name="chevron-back-outline" size={19.2} color="gray" />
+        </TouchableOpacity>
+
+        <View style={{flex:1,justifyContent:"space-between", alignItems:"center", }}>
+        <View style={{}}>
         {exerciseCompleteStatus && (
                 <Text>Congratulations, you answered correctly!</Text>
             )}
-            
             <Text style={styles.mathDescription}>{problemDescription}</Text>
             <Text style={styles.mathProblem}>{mathProblem}</Text>
                 <TextInput editable={!exerciseCompleteStatus} style={styles.inputField} onChangeText={(text)=>{setTypedInput(text)}}/>
+        </View>   
+
+        {!backButtonActivity && (
+                <TouchableOpacity style={styles.SubmitButton} onPress={()=>{checkAnswer()}}>
+                    <Text>Submit</Text>
+                </TouchableOpacity>
+            )}
+
+            {backButtonActivity && (
+                <TouchableOpacity style={styles.goBackButton} onPress={() => navigation.goBack()}>
+                    <Text>Go Back</Text>
+                </TouchableOpacity>
+        )}     
+        {/* <View style={{}}>
+        {exerciseCompleteStatus && (
+                <Text>Congratulations, you answered correctly!</Text>
+            )}
+            <Text style={styles.mathDescription}>{problemDescription}</Text>
+
+            <Text style={styles.mathProblem}>{mathProblem}</Text>
+                <TextInput editable={!exerciseCompleteStatus} style={styles.inputField} onChangeText={(text)=>{setTypedInput(text)}}/>
         </View>
-        <View>
             {!backButtonActivity && (
                 <TouchableOpacity style={styles.SubmitButton} onPress={()=>{checkAnswer()}}>
                     <Text>Submit</Text>
@@ -63,19 +87,33 @@ export const ExerciseTemplate = ({route, navigation}) => {
                 <TouchableOpacity style={styles.goBackButton} onPress={() => navigation.goBack()}>
                     <Text>Go Back</Text>
                 </TouchableOpacity>
-            )}
+            )}  */}
         </View>
     </View>)
 
 }
 
 const styles = StyleSheet.create({
+    BackButton:{
+        width: 64,
+        height: 64,
+        marginTop:48,
+        marginLeft:20,
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:"white",
+        borderColor:"black",
+        borderRadius:50,
+        borderWidth: 3,
+        elevation:5,
+    },
     mathDescription:{
         textAlign:"center",
         fontSize:28,
         fontFamily:"Rubik_800ExtraBold"
     },
     mathProblem:{
+        textAlign:"center",
         fontSize:24,
         margin:12
     },
