@@ -29,6 +29,7 @@ export const ExerciseTemplate = ({route, navigation}) => {
 
     const [typedInput, setTypedInput] = useState(null)
     const [backButtonActivity, setbackButtonActivity] = useState(false)
+    const [incorrectAnswerAlert, setIncorrectAnswerAlert] = useState("")
     const [exerciseCompleteStatus, setExerciseCompleteStatus] = useState(false)
 
     const checkAnswer = ()=>{
@@ -36,81 +37,74 @@ export const ExerciseTemplate = ({route, navigation}) => {
             console.log(true);
             setbackButtonActivity(true)
             setExerciseCompleteStatus(true)
+            setIncorrectAnswerAlert("Correct!")
         } else {
             console.log(false);
+            setIncorrectAnswerAlert("Incorrect!")
         }
     }
 
     return (
-    <View style={{flex:1}}>
-        <TouchableOpacity style={styles.BackButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="chevron-back-outline" size={19.2} color="gray" />
+    <View style={{backgroundColor:"white",flex:1}}>
+        <TouchableOpacity style={styles.topBackButton} onPress={() => navigation.goBack()}>
+            <Ionicons name="chevron-back-outline" size={19.2} color="white" />
         </TouchableOpacity>
 
         <View style={{flex:1,justifyContent:"space-between", alignItems:"center", }}>
         <View style={{}}>
-        {exerciseCompleteStatus && (
-                <Text>Congratulations, you answered correctly!</Text>
-            )}
             <Text style={styles.mathDescription}>{problemDescription}</Text>
             <Text style={styles.mathProblem}>{mathProblem}</Text>
                 <TextInput editable={!exerciseCompleteStatus} style={styles.inputField} onChangeText={(text)=>{setTypedInput(text)}}/>
         </View>   
-
-        {!backButtonActivity && (
-                <TouchableOpacity style={styles.SubmitButton} onPress={()=>{checkAnswer()}}>
-                    <Text>Submit</Text>
-                </TouchableOpacity>
-            )}
-
-            {backButtonActivity && (
-                <TouchableOpacity style={styles.goBackButton} onPress={() => navigation.goBack()}>
-                    <Text>Go Back</Text>
-                </TouchableOpacity>
-        )}     
-        {/* <View style={{}}>
-        {exerciseCompleteStatus && (
-                <Text>Congratulations, you answered correctly!</Text>
-            )}
-            <Text style={styles.mathDescription}>{problemDescription}</Text>
-
-            <Text style={styles.mathProblem}>{mathProblem}</Text>
-                <TextInput editable={!exerciseCompleteStatus} style={styles.inputField} onChangeText={(text)=>{setTypedInput(text)}}/>
-        </View>
-            {!backButtonActivity && (
-                <TouchableOpacity style={styles.SubmitButton} onPress={()=>{checkAnswer()}}>
-                    <Text>Submit</Text>
-                </TouchableOpacity>
-            )}
-
-            {backButtonActivity && (
-                <TouchableOpacity style={styles.goBackButton} onPress={() => navigation.goBack()}>
-                    <Text>Go Back</Text>
-                </TouchableOpacity>
-            )}  */}
+                <View>
+                    <Text style={exerciseCompleteStatus ? (
+                        styles.answerIsCorrectMessage):
+                            styles.answerIsIncorrectMessage}>{incorrectAnswerAlert}</Text>
+                    {!backButtonActivity && (
+                        <TouchableOpacity style={styles.SubmitButton} onPress={()=>{checkAnswer()}}>
+                            <Text style={styles.submitButtonText}>Submit</Text>
+                        </TouchableOpacity>
+                    )}
+                    {backButtonActivity && (
+                        <TouchableOpacity style={styles.goBackButton} onPress={() => navigation.goBack()}>
+                            <Text style={styles.goBackButtonText}>Go Back</Text>
+                        </TouchableOpacity>
+                    )}
+                </View>    
         </View>
     </View>)
 
 }
 
 const styles = StyleSheet.create({
-    BackButton:{
+    answerIsCorrectMessage:{
+        marginBottom:12,
+        color: "lightgreen",
+        textAlign:"center",
+        fontSize:28,
+        fontWeight:"bold"
+    },
+    answerIsIncorrectMessage:{
+        marginBottom:12,
+        color: "red",
+        textAlign:"center",
+        fontSize:28,
+        fontWeight:"bold"
+    },
+    topBackButton:{
         width: 64,
         height: 64,
         marginTop:48,
         marginLeft:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"white",
-        borderColor:"black",
+        backgroundColor:"#ff8000",
         borderRadius:50,
-        borderWidth: 3,
-        elevation:5,
     },
     mathDescription:{
         textAlign:"center",
         fontSize:28,
-        fontFamily:"Rubik_800ExtraBold"
+        fontWeight:"bold"
     },
     mathProblem:{
         textAlign:"center",
@@ -119,9 +113,10 @@ const styles = StyleSheet.create({
     },
     inputField:{
         width: 319,
-        height: 40, 
+        height: 50, 
         paddingHorizontal:20,
         borderColor: 'gray', 
+        borderRadius:15,
         borderWidth: 1 
     },
     goBackButton:{
@@ -130,7 +125,7 @@ const styles = StyleSheet.create({
         marginBottom:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"lightgreen",
+        backgroundColor:"#ff8000",
         borderRadius:50,
     },
     SubmitButton:{
@@ -141,5 +136,16 @@ const styles = StyleSheet.create({
         alignItems:"center",
         backgroundColor:"#c09",
         borderRadius:50,
+    },
+    submitButtonText:{
+        color: "white",
+        fontSize:24,
+        fontWeight:"bold"
+    },
+    goBackButtonText:{
+        color: "white",
+        fontSize:24,
+        fontWeight:"bold"
+        
     }
 })

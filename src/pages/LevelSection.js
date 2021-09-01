@@ -27,10 +27,10 @@ export const LevelSection = ({route,navigation}) => {
         Rubik_900Black
       });
 
-    return(<View style={{flex:1}}>
+    return(<View style={{backgroundColor:"white",flex:1}}>
         <View>
                 <TouchableOpacity style={styles.BackButton} onPress={() => navigation.goBack()}>
-                    <Ionicons name="chevron-back-outline" size={19.2} color="gray" />
+                    <Ionicons name="chevron-back-outline" size={19.2} color="white" />
                 </TouchableOpacity>
                 <Text style={styles.levelSectionTitle}>{`${route.params.level.charAt(0).toUpperCase() + route.params.level.slice(1)} section`}</Text>
             <View style={styles.levelListContainer}>
@@ -51,9 +51,10 @@ export const LevelSection = ({route,navigation}) => {
 
 const styles = StyleSheet.create({
     levelSectionTitle:{
-        fontFamily:"Rubik_800ExtraBold",
+        margin: 24,
         textAlign:"center",
         fontSize:36,
+        fontWeight:"bold"
     },
     BackButton:{
         width: 64,
@@ -62,15 +63,13 @@ const styles = StyleSheet.create({
         marginLeft:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"white",
-        borderColor:"black",
+        backgroundColor:"#ff8000",
         borderRadius:50,
-        borderWidth: 3,
-        elevation:5,
     },
     levelNumber:{
+        color: "#404040",
         fontSize:24,
-        fontFamily:"Rubik_800ExtraBold"
+        fontWeight:"bold"
     },
     levelListContainer:{
         justifyContent:"center",
@@ -87,6 +86,5 @@ const styles = StyleSheet.create({
         backgroundColor:"white",
         justifyContent:"center",
         alignItems:"center",
-        elevation:5,
     }
 })
