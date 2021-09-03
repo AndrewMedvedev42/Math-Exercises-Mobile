@@ -1,6 +1,6 @@
 import React from 'react';
 import {Home} from "./src/pages/Home"
-import {About} from "./src/pages/About"
+import {How_To_Fill_Answers_Screen} from "./src/pages/How_To_Fill_Answers_Screen"
 import {LevelSection} from "./src/pages/LevelSection"
 import {ExerciseTemplate} from "./src/pages/Exercise"
 import 'react-native-gesture-handler';
@@ -23,8 +23,8 @@ export default function App() {
             headerShown: false}}/>
 
       <Stack.Screen
-          name="About"
-          component={About}
+          name="How_To_Fill_Answers_Screen"
+          component={How_To_Fill_Answers_Screen}
           screenOptions={{
             headerShown: false}}/>
 

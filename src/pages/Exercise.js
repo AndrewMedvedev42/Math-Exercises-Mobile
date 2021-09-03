@@ -45,18 +45,18 @@ export const ExerciseTemplate = ({route, navigation}) => {
     }
 
     return (
-    <View style={{backgroundColor:"white",flex:1}}>
+    <View style={{flex:1}}>
         <TouchableOpacity style={styles.topBackButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="chevron-back-outline" size={19.2} color="white" />
+            <Ionicons name="chevron-back-outline" size={19.2} color="#404040" />
         </TouchableOpacity>
 
-        <View style={{flex:1,justifyContent:"space-between", alignItems:"center", }}>
-        <View style={{}}>
+        <View style={{flex:1, justifyContent:"space-between"}}>
+        <View style={{alignItems:"center", }}>
             <Text style={styles.mathDescription}>{problemDescription}</Text>
             <Text style={styles.mathProblem}>{mathProblem}</Text>
                 <TextInput editable={!exerciseCompleteStatus} style={styles.inputField} onChangeText={(text)=>{setTypedInput(text)}}/>
         </View>   
-                <View>
+                <View style={{justifyContent:"space-between", alignItems:"center", }}>
                     <Text style={exerciseCompleteStatus ? (
                         styles.answerIsCorrectMessage):
                             styles.answerIsIncorrectMessage}>{incorrectAnswerAlert}</Text>
@@ -79,7 +79,7 @@ export const ExerciseTemplate = ({route, navigation}) => {
 const styles = StyleSheet.create({
     answerIsCorrectMessage:{
         marginBottom:12,
-        color: "lightgreen",
+        color: "#33cc33",
         textAlign:"center",
         fontSize:28,
         fontWeight:"bold"
@@ -98,10 +98,12 @@ const styles = StyleSheet.create({
         marginLeft:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"#ff8000",
+        backgroundColor:"white",
         borderRadius:50,
+        elevation:5
     },
     mathDescription:{
+        margin: 24,
         textAlign:"center",
         fontSize:28,
         fontWeight:"bold"
@@ -125,8 +127,9 @@ const styles = StyleSheet.create({
         marginBottom:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"#ff8000",
+        backgroundColor:"white",
         borderRadius:50,
+        elevation:3
     },
     SubmitButton:{
         width: 319,
@@ -134,17 +137,18 @@ const styles = StyleSheet.create({
         marginBottom:20,
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"#c09",
+        backgroundColor:"white",
         borderRadius:50,
+        elevation:3
     },
     submitButtonText:{
-        color: "white",
-        fontSize:24,
+        color: "#404040",
+        fontSize:20,
         fontWeight:"bold"
     },
     goBackButtonText:{
-        color: "white",
-        fontSize:24,
+        color: "#404040",
+        fontSize:20,
         fontWeight:"bold"
         
     }

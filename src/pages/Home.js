@@ -19,8 +19,8 @@ export const Home = ({navigation}) => {
               <Text style={styles.buttonText}>Hard Level</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About')}>
-              <Text style={styles.buttonText}>About...</Text>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('How_To_Fill_Answers_Screen')}>
+              <Text style={styles.buttonText}>How to fill answers</Text>
             </TouchableOpacity>
   
           </View>
@@ -32,7 +32,7 @@ export const Home = ({navigation}) => {
 
 const styles = StyleSheet.create({
     title:{
-      color:"#cc6600",
+      color: "black",
       textAlign:"center",
       fontWeight:"bold",
       fontSize:36,
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
       margin: 6,
       padding: 20,
       backgroundColor:"white",
-      borderColor:"black",
+      // borderColor:"black",
       borderRadius:25,
-      borderWidth: 3,
+      // borderWidth: 3,
       elevation:5,
       
     },
